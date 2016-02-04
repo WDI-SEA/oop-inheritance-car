@@ -11,6 +11,9 @@ Remember TDD? This time, you'll have to make your own tests for each feature. As
 5. Repeat 3 and 4 until you pass all tests
 6. Move on to the next feature (start back at step 1)
 
+###Optional
+
+For more real-world TDD experience, pair up with a partner. Have one person write the tests, then the other person write the code to pass the tests. If you do this, make sure each person makes a pull request once finished.
 
 ##Part 1 -- Motorcycles
 
