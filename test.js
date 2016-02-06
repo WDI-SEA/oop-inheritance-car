@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,6 +123,54 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+//Motorcycle
+console.log('Testing Constructor');
+var myMotorcycle = new Motorcycle('BMW', 'ZOOM', 2016, 'Red', 2);
+success();
+
+console.log('Testing instanceof Motorcycle');
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true, 'there is no instanceof Motorcycle');
+success();
+
+console.log('Testing instanceof Car');
+assert.strictEqual(myMotorcycle instanceof Car, true, 'there is no instanceof Car');
+success();
+
+console.log('Testing no more than 2 seats');
+assert.strictEqual(myMotorcycle.seats,2,'Constructor did not set seats.');
+success();
+
+console.log('Testing for Wheelie function');
+assert.equal(typeof(myMotorcycle.wheelie),'function','there is no pickUp function');
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.running,true,'not doing a wheelie.');
+success();
+
+//Truck
+console.log('Testing Constructor');
+var myTruck = new Truck('RoadHog', 'Tonga', 2016, 'Red', 3);
+success();
+
+console.log('Testing instanceof Motorcycle');
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true, 'there is no instanceof Motorcycle');
+success();
+
+console.log('Testing instanceof Car');
+assert.strictEqual(myMotorcycle instanceof Car, true, 'there is no instanceof Car');
+success();
+
+console.log('Testing no more than 2 seats');
+assert.strictEqual(myMotorcycle.seats,2,'Constructor did not set seats.');
+success();
+
+console.log('Testing for Wheelie function');
+assert.equal(typeof(myMotorcycle.wheelie),'function','there is no pickUp function');
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.running,true,'not doing a wheelie.');
+success();
+
+
+
 
 
 
