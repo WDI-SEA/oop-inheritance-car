@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -121,10 +122,36 @@ assert.strictEqual(myCar.passengerCount(),3,'Passenger count seems inaccurate. E
 success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck');
 
 
-//ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+//ADD TESTS HERE FOR MOTORCYCLE
+console.log('Testing motorcyle');
+var myCycle = new Motorcycle;
+console.log('Testing if motorcyle is instance of car and motorcyle.');
+assert.equal(myCycle instanceof Motorcycle, true, 'The motorcyle was not an instance of motorcyle.');
+assert.equal(myCycle instanceof Car, true, 'The motorcyle was not an instance of car.');
+assert.equal(myCycle.seats, 2, 'Your motorcyle has the wrong number of seats.');
+assert.equal(myCycle.wheelie(), false, "You're doing a wheelie with the engine off. WTF?");
+myCycle.start();
+assert.equal(myCycle.wheelie(), true, "You failed to do a wheelie.");
+success('Your Motorcycle looks fine!');
 
-
-
+//ADD TESTS FOR TRUCK
+console.log('Testing truck.');
+var myTruck = new Truck("ToyYoda", "Lugnut", 2012, "taupe", 9001);
+var crapTruck = new Truck("Chevy", "Chase", 1980, "lime green", 25);
+console.log('Testing if truck is instance of car and truck.');
+assert.equal(myTruck instanceof Truck, true, 'The truck is not a truck... whoa...');
+assert.equal(myTruck instanceof Car, true, 'The truck should be an instance of car.');
+success('Your Truck is a Truck!');
+console.log('Testing load and unload');
+myTruck.load(500);
+crapTruck.load(500);
+assert.equal(myTruck.cargo, 500, "My truck should have been loaded.");
+assert.equal(crapTruck.cargo, 0, "The crap truck should not have been loaded.");
+myTruck.unload(50);
+crapTruck.unload(50);
+assert.equal(myTruck.cargo, 450, "My truck should be 50 pounds lighter.");
+assert.equal(crapTruck.unload(), false, "The crap truck should not have had anything to unload.");
+success('Load and unload seems to work just fine.');
 //simple helper function to output success of tests (DRY)
 function success(extra){
     console.log('...success');
