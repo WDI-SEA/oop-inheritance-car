@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,8 +123,64 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+//Testing instanceof Motorcycle
+console.log('Testing instanceof Motorcycle');
+var harley = new Motorcycle("Harley", "CoolModel", "2016", "red", 1);
+assert.equal(harley instanceof Motorcycle, true, "harley should be an instanceof Motorcycle");
+success();
 
+//Testing instanceof Car
+console.log('Testing instanceof Car');
+assert.equal(harley instanceof Car, true, "harley should be instanceof Car");
+success();
 
+//Testing more than 2 seats
+console.log('Testing more than 2 seats');
+assert.equal(harley.seats <=2, true, "cannot have more than 2 seats");
+success();
+
+//Testing wheelie
+console.log("Testing wheelie");
+harley.start();
+assert.equal(harley.wheelie(), true, "cannot wheelie if motorcycle isn't started");
+success();
+
+//Testing truck instanceof Truck
+console.log("Testing truck instanceof Truck");
+var myTruck = new Truck();
+assert.equal(myTruck instanceof Truck, true, "myTruck must be instanceof Truck");
+success();
+
+//Testing myTruck instanceof of Car
+console.log("Testing myTruck instanceof Car");
+assert.equal(myTruck instanceof Car, true, "myTruck should be instanceof Car");
+success();
+
+//Testing 3 seats
+console.log("Testing for 3 seats");
+assert.equal(myTruck.seats === 3, true, "myTruck can only have 3 seats");
+success();
+
+//Testing load(pounds)
+console.log("Testing load takes a weight");
+var myTruck = new Truck("Ford", "F150", "2010", "Red", 10);
+assert.equal(myTruck.load(10), true, "myTruck should take a load up to capacity");
+success();
+
+//Testing loading too much weight
+console.log("Testing loading too much weight");
+assert.equal(myTruck.load(15), false, "myTruck shouldn't take more weight than capacity");
+success();
+
+//Testing unload
+console.log("Testing unload");
+assert.equal(myTruck.unload(10), true, "myTruck should have removed cargo");
+success();
+
+//Testing unload doesn't work with too much weight
+console.log("Testing unload");
+assert.equal(myTruck.unload(15), false, "myTruck can't unload more weight than current cargo");
+success();
 
 //simple helper function to output success of tests (DRY)
 function success(extra){
