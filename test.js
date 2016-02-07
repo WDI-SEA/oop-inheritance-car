@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js')
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -123,7 +124,56 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
 
+//MOTORCYCLE TESTS
 
+console.log('Running Motorcycle tests:' + '\n');
+
+//test for motorcycle being an instanceof Motorcyle
+console.log('Testing that your motorcycle is an instanceof Motorcycle');
+var myMotorcycle = new Motorcycle('Honda', 'Rebel', 2001, 'Black', 2);
+assert.strictEqual(myMotorcycle instanceof Motorcycle,true,'Your motorcycle should be an instanceof Motorcycle')
+success('Your motorcycle is an instanceof Motorcycle!');
+
+//test for a motorcycle being an instanceof Car
+console.log('Testing that your motorcycle is an instanceof Car');
+assert.strictEqual(myMotorcycle instanceof Car,true,' Your motorcycle should be an instance of Car');
+success('Your motorcycle is an instanceof Car!');
+
+//test maxSeats
+console.log('Testing to make sure that a motorcycle cannot have more than two seats');
+assert.strictEqual(myMotorcycle.maxSeats(),false,'Your motorcycle cannot have more than two seats');
+success('Your motorcycle does not have more than two seats!');
+
+//test wheelie
+console.log('Testing to make sure that a motorcycle can do a wheelie only while running');
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.wheelie(),true,'You cannot do a wheelie unless your motorcycle is running');
+success('Doing a sick wheelie!!');
+
+//TRUCK TESTS
+
+console.log('Running Truck tests:' + '\n');
+
+//test for a truck being an instanceof Truck
+console.log('Testing that your truck is an instanceof Truck');
+var myTruck = new Truck('Ford', 'Ranger', 1996, 'Teal', 500);
+assert.strictEqual(myTruck instanceof Truck,true,'Your truck should be an instanceof Truck')
+success('Your truck is an instanceof Truck!');
+
+//test for a truck being an instanceof Car
+console.log('Testing that your truck is an instanceof Car');
+assert.strictEqual(myTruck instanceof Car,true,'Your truck should be an instance of Car');
+success('Your truck is an instanceof Car!');
+
+//test load
+console.log('Testing that your truck cannot load more cargo than its capacity');
+assert.strictEqual(myTruck.load(300),true,'Your truck does not have the capacity to load this amount of cargo');
+success('Your truck is able to be loaded with an appropriate amount of cargo!');
+
+//test unload
+console.log('Testing that your truck cannot unload more cargo than it is carrying');
+assert.strictEqual(myTruck.unload(200),true,'Your truck does not have this much cargo loaded');
+success('Your truck is able to be unloaded with the appropriate amount of cargo!');
 
 //simple helper function to output success of tests (DRY)
 function success(extra){
