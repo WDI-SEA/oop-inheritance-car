@@ -11,6 +11,16 @@ function Motorcycle(make, model, year, color, seats, passengers) {
 Motorcycle.prototype = Object.create(Car.prototype);
 Motorcycle.prototype.constructor = Motorcycle;
 
+Motorcycle.prototype.wheelie = function(){
+	var success = false;
+	if(this.running){
+		console.log("Doing a sick wheelie!!");
+		var success = true;
+	}
+	return success;
+}
+
+
 module.exports = Motorcycle;
 
 //instance of motorcycle
