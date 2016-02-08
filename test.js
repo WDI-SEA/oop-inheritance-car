@@ -161,9 +161,11 @@ assert.equal(typeof(truck.year), "number", "Truck doesn't have a year");
 assert.equal(typeof(truck.color), "string", "Truck doesn't have a year");
 
 //Testing handling of cargo
-var truck1 = new Truck("Ford", "Explorer", 2011, "Black", 4, 2, 25);
+var truck1 = new Truck("Ford", "Explorer", 2011, "Black", 4, 2, 40);
 assert.strictEqual(truck1.load(15), true, "Cargo couldn't be loaded");
 truck1.load(25);
+console.log(truck1.cargo);
+assert.strictEqual(truck1.cargo, 40, "Didn't load cargo properly");
 assert.strictEqual(truck1.unload(20), true, "Cargo could not be unloaded");
 truck1.cargo = 20;
 assert.strictEqual(truck1.unload(25), false, "Cargo unload broken");

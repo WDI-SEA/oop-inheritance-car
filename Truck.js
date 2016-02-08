@@ -15,7 +15,7 @@ Truck.prototype.constructor = Truck;
 
 Truck.prototype.load = function(weight){
 	var success = false;
-	if(weight <= this.capacity){
+	if(weight + this.cargo <= this.capacity){
 		this.cargo += weight;
 		success = true;
 		console.log("loaded " + weight + " pounds of cargo.");
