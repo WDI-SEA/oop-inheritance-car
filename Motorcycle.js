@@ -19,7 +19,7 @@ Motorcycle.prototype.constructor = Motorcycle;
 Motorcycle.prototype.wheelie = function() {
 	if (this.running) {
 		return true;
-		//console.log("Doing a sick wheelie!!");
+	console.log("Doing a sick wheelie!!");
 	} else {
 		return false;
 	}

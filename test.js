@@ -151,12 +151,13 @@ assert.strictEqual(myMotorcycle.seats <= 2, true, "Motorcycle can only have two 
 success();
 
 //testing Wheelie
-console.log("Testing the sick wheelie out");
+console.log("Testing out this Vespa's sick wheelie!");
 assert.equal(typeof(myMotorcycle.wheelie),'function','there is no wheelie function');
 //myMotorcycle.wheelie();
 myMotorcycle.start();
 assert.strictEqual(myMotorcycle.running,true,'Failed to do a wheelie. Running should = true');
-success('Your Motorcycle is ready and it is time to test out the Truck!');
+//console.log("Doing a sick wheelie!!");
+success('YAY. Your Motorcycle is ready and it\'s time for your Truck!');
 
 //Truck Constructor
 console.log('Testing Truck Constructor');
@@ -172,6 +173,7 @@ success();
 console.log('Testing instanceof Car');
 var myTruck = new Truck('Ford', 'F150', 1990, 'Beige');
 assert.strictEqual(myTruck instanceof Car, true, "Truck is not an instanceof Car");
+//console.log('Truck is ' + Truck);
 success();
 
 //testing instanceof Motorcycle
@@ -180,6 +182,38 @@ var myTruck = new Truck('Ford', 'F150', 1990, 'Beige');
 assert.strictEqual(myTruck instanceof Motorcycle, true, "Truck is not an instanceof Motorcycle");
 success();
 
+//testing 0 capacity method
+console.log('Testing no capacity setting');
+var myTruck = new Truck('Ford', 'F150', 1990, 'Beige');
+//myTruck.capacity(1000);
+assert.strictEqual(myTruck.capacity,0,'Failed to set capacity to 0.');
+
+success();
+
+//testing capacity method
+console.log('Testing capacity setting');
+var myTruck = new Truck('Ford', 'F150', 1990, 'Beige', 3, 1000);
+//myTruck.capacity(1000);
+assert.strictEqual(myTruck.capacity,1000,'Failed to set capacity to 1000.');
+success();
+
+//testing load method
+console.log('Testing load to increase cargo method');
+var myTruck= new Truck('Ford', 'F150', 1990, 'Beige', 3, 1000);
+myTruck.load(500);
+assert.strictEqual(myTruck.cargo,500,'Failed to set load to 500.');
+//console.log(myTruck.cargo);
+success();
+
+//testing unload method
+console.log('Testing unload to decrease cargo');
+var myTruck= new Truck('Ford', 'F150', 1990, 'Beige', 3, 1000);
+myTruck.load(750);
+//console.log(myTruck.cargo);
+myTruck.unload(500);
+assert.strictEqual(myTruck.cargo,250,'Failed to decrease cargo.');
+//console.log(myTruck.cargo);
+success('Yay!!!!! You finished your homework. You must have worked hard on that.');
 
 //simple helper function to output success of tests (DRY)
 function success(extra){

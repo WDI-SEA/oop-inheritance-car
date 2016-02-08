@@ -2,32 +2,36 @@ var Car = require('./Car.js');
 var Car = require('./Motorcycle.js');
 
 //Implement your Truck here
-function Truck(make, model, year, color, seats, passengers, capacity, cargo) {
-	Car.call(this, make, model, year, color, seats, passengers);
+function Truck(make, model, year, color, seats, capacity) {
+	Car.call(this, make, model, year, color, seats);
 	this.seats = 3;
-	this.capacity = 0;
+	this.capacity = capacity || 0;
 	this.cargo = 0;
 };
 
-//Implement your Motorcycle here
-function Motorcycle(make, model, year, color, seats, passengers) {
-	if (this.seats <= 2) {
-	Car.call(this, make, model, year, color, seats, passengers);
+Truck.prototype = Object.create(Car.prototype);
+Truck.prototype.constructor = Truck;
+//console.log('Truck is ' + Truck);
+
+//add cargo function
+Truck.prototype.load = function(pounds) {	
+	if (this.capacity > (this.cargo + pounds)) {
+	this.cargo = this.cargo + pounds;
+	return true;
 	} else {
-		Car.call(this, make, model, year, color, 2, passengers);
+		return false;
 	}
 };
 
-
-
-Truck.prototype = Object.create(Car.prototype);
-Truck.prototype.constructor = Truck;
-
-// Motorcycle.prototype = Object.create(Car.prototype);
-// Motorcycle.prototype.constructor = Motorcycle;
-
-Truck.prototype = Object.create(Motorcycle.prototype);
-Truck.prototype.constructor = Truck;
+//unload function
+Truck.prototype.unload = function(pounds) {
+	if (pounds < this.cargo) {
+		this.cargo = this.cargo-pounds;
+		return true;
+	} else {
+		return false;
+	}	
+};
 
 module.exports = Truck;
-module.exports = Motorcycle;
+//module.exports = Motorcycle;
