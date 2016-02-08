@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,6 +123,57 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+
+//Motorcycle
+
+//Motorcycle instances
+console.log("Testing motorcycle instances");
+var myMotorcycle = new Motorcycle('Triumph', '650 T 120 Bonneville', 1959, 'black', 2);
+
+assert.equal(myMotorcycle instanceof Motorcycle, true, 'motorcycle isnt an instance of object Motorcycle');
+assert.equal(myMotorcycle instanceof Car, true, "motorcycle isn't an instance of Car");
+success();
+
+//Seats
+console.log("Testing motorcycle Seat limit");
+var myMotorcycle2 = new Motorcycle('Kawasaki', "Ninja 300 ABS", 2015, 'green', 3);
+assert.equal(myMotorcycle2.seats, 1, "The Motorcycle has the wrong number of seats");
+success();
+
+//Wheelie
+console.log("Testing wheelie");
+myMotorcycle.start();
+assert.equal(myMotorcycle.wheelie(), true, "Motorcycle didn't do a wheelie");
+myMotorcycle.off();
+assert.equal(myMotorcycle.wheelie(), false, "Motorcyclce did a wheelie when it was off");
+success();
+
+//Trucks
+//Test make model ect
+console.log("Testing Make, Model, ect of Truck");
+myTruck = new Truck('GMC', 'Sierra', 2005, 'maroon');
+assert.strictEqual(myTruck instanceof Car, true, "Truck is not instance of Car");
+assert.strictEqual(myTruck.make,'GMC','Constructor did not set make.');
+assert.strictEqual(myTruck.model,'Sierra','Constructor did not set model.');
+assert.strictEqual(myTruck.year,2005,'Constructor did not set year.');
+assert.strictEqual(myTruck.color,'maroon','Constructor did not set color.');
+assert.strictEqual(myTruck.seats,3,'Constructor did not set seats.');
+success();
+
+//testing capacity
+console.log("Testing truck Capacity");
+assert.strictEqual(myTruck.capacity, 0, "default capacity is not 0");
+myTruck2 = new Truck('Dodge', 'Ram', 2000, 'green', 1000);
+assert.strictEqual(myTruck2.capacity, 1000, "Capacity wasn't set by constructor");
+assert.strictEqual(myTruck2.cargo, 0, "Cargo default was not 0");
+myTruck2.load(500);
+assert.strictEqual(myTruck2.cargo, 500, "cargo was not 500 as expected after load");
+myTruck2.unload(700);
+assert.strictEqual(myTruck2.cargo, 500, "changed cargo when unload was too big");
+myTruck2.unload(499);
+assert.strictEqual(myTruck2.cargo, 1, "Cargo was not 1 as expected after unload");
+assert.deepEqual(myTruck2.load(9999), false, "Cargo loaded over capacity");
+success();
 
 
 
