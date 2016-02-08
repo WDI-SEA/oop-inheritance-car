@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,10 +123,49 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+// test instance of motorcycle
+console.log('Testing Motorcyle istanceof');
+var myMotorcycle = new Motorcycle(2,false);
+assert.equal(myMotorcycle instanceof Motorcycle,true,'Motorcyle is not an instance of Motorcycle');
+assert.equal(myMotorcycle instanceof Car, true, 'Motorcycle is not an instance of Car');
+assert.equal(typeof(myMotorcycle.Wheelie), 'function' , 'There is no Wheelie()');
+assert.strictEqual(myMotorcycle.seats <= 2, true, 'Motorcycle can not have more then two seats');
+success();
+
+// test motorcycle wheelie
+console.log('Testing Motorcycle Wheelie');
+assert.strictEqual(myMotorcycle.running,false,'You can not do a wheelie without the Motorcycle running');
+success();
+
+// test instanceof Truck
+console.log('Testing Truck instanceof');
+var myTruck = new Truck('ford','f150', 2016, 'blue', 3, 1500, 1000);
+assert.strictEqual(typeof(myTruck.load()), "boolean", "load() did not return a boolean ");
+assert.equal(myTruck instanceof Truck,true,"Truck is not an instance of Trucks");
+assert.equal(myTruck instanceof Car, true, "Truck is not an instance of Car");
+assert.strictEqual(myTruck.make,'ford','Constructor did not set make.');
+assert.strictEqual(myTruck.model,'f150','Constructor did not set model.');
+assert.strictEqual(myTruck.year,2016,'Constructor did not set year.');
+assert.strictEqual(myTruck.color,'blue','Constructor did not set color.');
+assert.strictEqual(myTruck.seats,3,'Constructor did not set seats.');
+success();
+
+// test loading cargo into truck
+console.log('Testing cargo load');
+assert.equal(typeof(myTruck.load), "function", "There is no load()");
+assert.strictEqual(myTruck.cargo < myTruck.capacity, true, "Truck can not carry cargo over it's capacity");
+success();
+
+// test unloading cargo from truck
+console.log('Testing cargo unload');
+var myTruck = new Truck('ford','f150', 2016, 'blue', 3, 1000, 1500);
+assert.equal(typeof(myTruck.unload), "function", "There is no unload()");
+assert.strictEqual(typeof(myTruck.unload()), "boolean", "unload() does not return a boolean");
+assert.strictEqual(myTruck.cargo > myTruck.capacity, true, "You can't unload cargo more then cargo in the truck");
+success();
 
 
-
-//simple helper function to output success of tests (DRY)
+// simple helper function to output success of tests (DRY)
 function success(extra){
     console.log('...success');
     console.log(' ');
