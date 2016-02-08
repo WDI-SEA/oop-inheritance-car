@@ -137,7 +137,7 @@ assert.strictEqual(myMotorcycle instanceof Car, true, 'there is no instanceof Ca
 success();
 
 console.log('Testing no more than 2 seats');
-assert.strictEqual(myMotorcycle.seats,2,'Constructor did not set seats.');
+assert.strictEqual(myMotorcycle.seats <= 2,true,'Constructor did not set seats.');
 success();
 
 console.log('Testing for Wheelie function');
