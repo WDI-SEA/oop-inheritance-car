@@ -127,7 +127,7 @@ console.log("Here are motorcycle tests");
 
 // instance of motorcycle?
 console.log("Test to see if your motorcycle is an instanceof Motorcycle.");
-var moto1 = new Motorcycle("Ducati", "Monster", 2015, 2);
+var moto1 = new Motorcycle("Ducati", "Monster", 2015, "gray", 2);
 assert.strictEqual(moto1 instanceof Motorcycle, true, "your bike is not instanceof Motorcycle");
 success();
 
@@ -138,12 +138,13 @@ success();
 
 //not have more than two seats?
 console.log("Testing to see if your bike has two seats or less");
-assert.strictEqual(moto1.seats, moto1.seats >= 2, "Your bike does not have two seats or less");
-
-//wheelie if running?
-console.log("Test to see if bike can do a wheelie only if running");
-assert.strictEqual(moto1.wheelie(), true, "wheelies are not good to go.");
+assert.strictEqual(moto1.seats, 2, "Your bike does not have two seats or less");
 success();
+
+// //wheelie if running?
+// console.log("Test to see if bike can do a wheelie only if running");
+// assert.strictEqual(moto1.wheelie(), result, "wheelies are not good to go.");
+// success();
 
 
 console.log("Here are the truck tests");

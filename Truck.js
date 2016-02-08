@@ -1,7 +1,7 @@
 var Car = require('./Car.js');
 
 //Implement your Truck here
-function Truck(make,model,year,color) {
+function Truck(make,model,year,color,capacity) {
 	Car.call(this, make, model, year, color);
 	this.seats = 3;
 	this.cargo = 0;
