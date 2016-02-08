@@ -122,6 +122,29 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+console.log("Testing motorcycle");
+var motorcycle = new Motorcycle ("Ducati", 600, 2015, "blue", 2);
+assert.strictEqual(motorcycle instanceof Motorcycle, true, "motorcycle is not an instance of Motorcycle");
+assert.strictEqual(motorcycle instanceof Car, true, "motorcycle is not an instance of Car");
+assert.strictEqual(motorcycle.seats <=2, true, "motorcycle has more than 2 seats");
+assert.equal(typeof(motorcycle.wheelie), 'function', 'there is no wheelie function');
+motorcycle.running = false;
+assert.strictEqual(motorcycle.wheelie(), false, "performed wheelie while not running");
+assert.strictEqual(typeof motorcycle.wheelie(), 'boolean', "wheelie function did not return a boolean");
+success();
+
+console.log("Testing truck");
+var truck = new Truck("Ford", "F-150", 2015, "blue", 4);
+assert.strictEqual(truck instanceof Truck, true, "truck is not an instance of Truck");
+assert.strictEqual(truck instanceof Car, true, "truck is not an instance of Car");
+var truck2 = new Truck("Ford", "F-150", 2015, "blue");
+assert.strictEqual(truck2.seats === 3, true, "truck did not default to 3 seats");
+assert.strictEqual(truck2.capacity === 0, true, "truck did not default to capacity zero");
+assert.strictEqual(truck2.cargo === 0, true, "truck did not default to cargo zero");
+assert.strictEqual(typeof(truck2.load(250)),'boolean','load function did not return a boolean value');
+assert.strictEqual(truck2.load(250), 250, "load function did not update current load");
+assert.strictEqual(typeof(truck2.unload(250)),'boolean','unload function did not return a boolean value');
+assert.strictEqual(truck2.unload(250), 250, "unload function did not update current load");
 
 
 
