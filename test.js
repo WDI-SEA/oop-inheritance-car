@@ -123,6 +123,52 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
 
+console.log("Here are motorcycle tests");
+
+// instance of motorcycle?
+console.log("Test to see if your motorcycle is an instanceof Motorcycle.");
+var moto1 = new Motorcycle("Ducati", "Monster", 2015, "gray", 2);
+assert.strictEqual(moto1 instanceof Motorcycle, true, "your bike is not instanceof Motorcycle");
+success();
+
+//instance of car?
+console.log("Test to see if your motorcycle is an instanceof Car");
+assert.strictEqual(moto1 instanceof Car, true, "your bike is not an instanceof Car");
+success();
+
+//not have more than two seats?
+console.log("Testing to see if your bike has two seats or less");
+assert.strictEqual(moto1.seats, 2, "Your bike does not have two seats or less");
+success();
+
+// //wheelie if running?
+// console.log("Test to see if bike can do a wheelie only if running");
+// assert.strictEqual(moto1.wheelie(), result, "wheelies are not good to go.");
+// success();
+
+
+console.log("Here are the truck tests");
+
+//test if truck is an instance of car
+console.log("Testing instanceof Car");
+var truck1 = new Truck("Nissan", "Titan XD", 2016, "gray", 350);
+assert.strictEqual(truck1 instanceof Truck, true, "truck is not an instance of Car");
+success();
+
+//test if truck is an instance of Truck
+console.log ("Testing instanceof Truck")
+assert.strictEqual(truck1 instanceof Truck, true, "truck is not an instance of Truck")
+success();
+
+//test truck load function
+console.log("Test that truck cannot load more cargo than capacity allows");
+assert.strictEqual(truck1.load(400), true, "Truck does not have capacity for this load");
+success('Truck loaded just fine');
+
+//test truck unload
+console.log('Test to see that your truck cannot unload more cargo than it was originally carrying');
+assert.strictEqual(truck1.unload(600), true, 'Your truck does not have this much cargo loaded');
+success("Load successfully taken off");
 
 
 //simple helper function to output success of tests (DRY)
