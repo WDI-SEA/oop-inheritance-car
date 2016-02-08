@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js')
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,6 +123,63 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+console.log('Testing Motorcyle');
+var myMotorcycle = new Motorcycle();
+assert.equal(myMotorcycle instanceof Motorcycle, true, "is not instance of motorcycle")
+success();
+
+console.log('Testing Constructor');
+var myMotorcycle = new Motorcycle('Acura', 'Integra', 1999, 'Red', 4, 1);
+assert.strictEqual(myMotorcycle.make,'Acura','Constructor did not set make.');
+assert.strictEqual(myMotorcycle.model,'Integra','Constructor did not set model.');
+assert.strictEqual(myMotorcycle.year,1999,'Constructor did not set year.');
+assert.strictEqual(myMotorcycle.color,'Red','Constructor did not set color.');
+success();
+
+//cannont have instance of two seats(constructor)
+console.log('testing number of seats');
+assert.equal(myMotorcycle.seats <= 2, true, 'There cannont be more than 2 seats');
+success();
+
+//Doing a sick wheelie function 
+assert.equal(myMotorcycle.wheelie(), false, 'Motorcycle is not on');
+myMotorcycle.start();
+assert.equal(myMotorcycle.wheelie(), true, 'Motorcycle is on, do a sick wheelie!');
+
+//Truck 
+console.log('Testing Truck');
+var myTruck = new Truck();
+assert.equal(myTruck instanceof Truck, true, "is not instance of motorcycle")
+success();
+
+console.log('Testing Constructor');
+myTruck = new Truck('Acura', 'Integra', 1999, 'Red', 4, 1);
+assert.strictEqual(myTruck.make,'Acura','Constructor did not set make.');
+assert.strictEqual(myTruck.model,'Integra','Constructor did not set model.');
+assert.strictEqual(myTruck.year,1999,'Constructor did not set year.');
+assert.strictEqual(myTruck.color,'Red','Constructor did not set color.');
+success();
+
+console.log('testing number of seats');
+assert.equal(myTruck.seats === 3, true, 'The default is 3 seats');
+success();
+
+
+console.log('testing cargo');
+myTruck = new Truck ('Acura', 'Integra', 1999, 'Red', 4, 1, 30)
+
+assert.equal(myTruck.load(20), true, 'cannont load');
+assert.equal(myTruck.load(30), false, 'capacity full');
+success();
+
+console.log('testing cargo');
+myTruck = new Truck ('Acura', 'Integra', 1999, 'Red', 4, 1, 30)
+myTruck.load(30);
+
+assert.equal(myTruck.unload(30), true, "unable to unload truck");
+assert.equal(myTruck.unload(40), false, "Truck is empty");
+success();
+
 
 
 
