@@ -5,9 +5,11 @@ var Car = require('./Car.js');
 //Car and Motorcycle, cannot have more than
 // 2 seats, can wheelie() only if running
 //return true and console.log
-function Motorcycle(make, model,year, color, seats, passengers) {
-	Car.call(this, make, model, year, color, seats, passengers);
-	this.seats = 2;
+function Motorcycle(make, model,year, color, seats) {
+	Car.call(this, make, model, year, color, seats;
+	if (this.seats <= 2) {
+		this.seats = 2;
+	}
 
 };
 
@@ -16,7 +18,7 @@ Motorcycle.prototype.constructor = Motorcylce;
 Motorcycle.prototype.wheelie = function () {
 	if (this.running === true) {
 		console.log("Doing a sick wheelie!");
-		return true
+		return true;
 	};
 	else {
 		return false; 
