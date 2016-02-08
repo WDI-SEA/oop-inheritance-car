@@ -125,6 +125,9 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 
+
+
+
 //simple helper function to output success of tests (DRY)
 function success(extra){
     console.log('...success');
