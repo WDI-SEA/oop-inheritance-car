@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,6 +123,34 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+
+console.log('Testing Motorcyle');
+var myMoto = new Car('Acura', 'Integra', 1999, 'Red', 2, 1);
+assert.strictEqual(myMoto.make,'Acura','Constructor did not set make.');
+assert.strictEqual(myMoto.model,'Integra','Constructor did not set model.');
+assert.strictEqual(myMoto.year,1999,'Constructor did not set year.');
+assert.strictEqual(myMoto.color,'Red','Constructor did not set color.');
+assert.strictEqual(myMoto.seats,2,'Constructor did not set seats.');
+assert.strictEqual(myMoto.passengers,1,'Motorcyles only have 2 seats');
+success('Doing a sick wheelie!');
+
+//ADD TESTS HERE FOR TRUCK
+
+console.log('Testing Truck');
+var myTruck = new Truck('Acura', 'Integra', 1999, 'Red', 3, 2, 50);
+assert.strictEqual(myTruck.make,'Acura','Constructor did not set make.');
+assert.strictEqual(myTruck.model,'Integra','Constructor did not set model.');
+assert.strictEqual(myTruck.year,1999,'Constructor did not set year.');
+assert.strictEqual(myTruck.color,'Red','Constructor did not set color.');
+assert.strictEqual(myTruck.seats,3,'Constructor did not set seats.');
+assert.strictEqual(myTruck.passengers,2,'Trucks only have 3 seats');
+console.log(myTruck);
+assert.strictEqual(myTruck.capacity,50,'TOOHEAVY,CHILL');
+myTruck.load(25);
+assert.strictEqual(myTruck.cargo,25,'you carrying shit bruh');
+myTruck.unload(20);
+assert.strictEqual(myTruck.cargo,5,'you unloaded alla dat');
+success('loaded 25lbs of cargo.');
 
 
 
