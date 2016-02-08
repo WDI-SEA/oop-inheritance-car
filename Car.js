@@ -2,7 +2,6 @@ function Car(make, model, year, color, seats, passengers){
   this.make = make;
   this.model = model;
   this.year = year;
-  //TODO: add color, seats here
   this.color = color;
   this.seats = seats;
   this.passengers = passengers || [];
