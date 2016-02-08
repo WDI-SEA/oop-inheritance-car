@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -122,6 +123,28 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+
+// test motorcycle
+Motorcycle instanceof Motorcycle;
+success("Motorcycle is an instance of Motorcycle");
+Motorcycle instanceof Car;
+success("Motorcycle is an instance of Car");
+var myMotorcycle = new Motorcycle('Honda', 'CBR600RR', 2015, 'Yellow', 2);
+assert.strictEqual(myMotorcycle.wheelie(),true,'Should return "Doing a stick wheelie!!"');
+
+// test truck
+Truck instanceof Truck;
+success("Truck is an instance of Truck");
+Truck instanceof Car;
+success("Truck is an instance of Car");
+// test load(pounds)
+var myTruck = new Truck('Ford', 'F150', 1975, 'Red', '3', 100, 50);
+myTruck.load(30);
+console.log(myTruck);
+assert.strictEqual(myTruck.load(), true, 'Should increase cargo to 100');
+
+
+
 
 
 
