@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -124,6 +125,66 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
 
 
+///////////// TEST PHASE 1: MOTORCYCLES ///////////////////////
+
+// test instance of motorcycle
+console.log('Testing instanceof motorcycle');
+var myMotorcycle = new Motorcycle('Ninja', 2016, 'green', 2, 2);
+console.log(myMotorcycle instanceof Motorcycle);
+success();
+
+// testing instance of car
+console.log('Testing instanceof car');
+var myNewMotorcycle = new Motorcycle();
+console.log(myNewMotorcycle instanceof Car);
+success();
+
+// testing no more than 2 seats
+console.log('Testing for no more than 2 seats');
+assert.equal(typeof(myMotorcycle.lessThan2seats), 'function', 'there is no lessThan2seats function');
+assert.strictEqual((myMotorcycle.lessThan2seats()),true, 'lessThan2seats function did not return a boolean');
+success('Your vehicle has 2 seats!');
+
+// testing if you can do a wheelie
+console.log('Testing for wheelie');
+myMotorcycle.start();
+assert.equal(typeof(myMotorcycle.wheelie), 'function', 'there is no wheelie function');
+assert.strictEqual((myMotorcycle.wheelie()),true, 'wheelie function did not return a boolean');
+success("Doing wheelie's all day!")
+
+
+////////////// TEST PHASE 2: TRUCKS ////////////////////
+
+// test instance of car
+console.log('Testing instanceof car');
+var myTruck = new Truck('Nissan', 'Frontier', 1999, 'red');
+console.log(myTruck instanceof Car);
+success();
+
+// test instance of truck
+console.log('Testing instance of truck');
+console.log(myTruck instanceof Truck);
+success();
+
+// test adding weight to truck if it can hold that much additional weight.
+console.log('Testing load capacity and cargo ratio');
+assert.equal(typeof(myTruck.load), 'function', 'there is no load function');
+assert.strictEqual(typeof(myTruck.load()), 'boolean', 'load function did not return a boolean');
+assert.strictEqual(myTruck.load(1), false, 'truck unable to carry that much weight');
+var myNewTruck = new Truck('Chevy', 'Malibu', 2007, 'blue', 50);
+assert.strictEqual(myNewTruck.load(20), true, 'truck able to add weight cargo');
+var mySuperNewTruck = new Truck('Ford', 'F250', 2016, 'black', 100, 75);
+assert.strictEqual(mySuperNewTruck.load(30), false, 'truck unable to carry that much weight');
+success('Truck is able to add weight to cargo if it will not go over capacity');
+
+// test decreasing cargo weight
+console.log('Test decreasing cargo weight');
+var myExtremeNewTruck = new Truck('Chevy', 'Tahoe', 2017, 'green', 500, 500);
+assert.equal(typeof(myExtremeNewTruck.unload), 'function', 'there is no unload function');
+assert.strictEqual(typeof(myExtremeNewTruck.unload()), 'boolean', 'unload function did not return a boolean');
+assert.strictEqual(myExtremeNewTruck.unload(501), false, 'truck is not carrying that much cargo');
+assert.strictEqual(myExtremeNewTruck.unload(500), true, 'truck is able to unload that amount of cargo');
+success('Truck is unable to unload cargo!');
 
 //simple helper function to output success of tests (DRY)
 function success(extra){
