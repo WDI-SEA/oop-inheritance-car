@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js')
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -137,3 +138,35 @@ function success(extra){
     }
 
 }
+
+//Testing motorcycle constructor
+console.log('Testing Motorcycles');
+var motorcycle = new Motorcycle("Harley", "Davidson", 2006, "Black", 2, 0);
+var motorcycle = new Motorcycle("Harley", "Davidson", 2006, "Black", 5, 0);
+assert.deepEqual((motorcycle instanceof Motorcycle), true, 'Was not an instance of Motorcycle');
+assert.deepEqual((motorcycle instanceof Car), true, 'Was not an instance of Car');
+assert.equal(motorcycle.seats <=2, true, "There are more than two seats");
+motorcycle.start();
+assert.strictEqual(motorcycle.wheelie(), true, "Motorcycle was unable to wheelie");
+
+
+//Testing truck constructor
+console.log('Testing Truck');
+var truck = new Truck("Dodge", "Dakota", 2016, "Grey", 4, 0);
+assert.deepEqual((truck instanceof Car), true, "Was an instance of Car");
+assert.deepEqual((truck instanceof Truck), true, "Was an instance of truck");
+assert.equal(typeof(truck.make), "string", "Truck doesn't have a make");
+assert.equal(typeof(truck.model), "string", "Truck doesn't have a model");
+assert.equal(typeof(truck.year), "number", "Truck doesn't have a year");
+assert.equal(typeof(truck.color), "string", "Truck doesn't have a year");
+
+//Testing handling of cargo
+var truck1 = new Truck("Ford", "Explorer", 2011, "Black", 4, 2, 40);
+assert.strictEqual(truck1.load(15), true, "Cargo couldn't be loaded");
+truck1.load(25);
+console.log(truck1.cargo);
+assert.strictEqual(truck1.cargo, 40, "Didn't load cargo properly");
+assert.strictEqual(truck1.unload(20), true, "Cargo could not be unloaded");
+truck1.cargo = 20;
+assert.strictEqual(truck1.unload(25), false, "Cargo unload broken");
+
