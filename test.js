@@ -148,26 +148,33 @@ success();
 
 //Truck
 console.log('Testing Constructor');
-var myTruck = new Truck('RoadHog', 'Tonga', 2016, 'Red', 3);
+var myTruck = new Truck('RoadHog', 'Tonga', 2016, 'Red', 3, 0, 1000);
 success();
 
-console.log('Testing instanceof Motorcycle');
-assert.strictEqual(myMotorcycle instanceof Motorcycle, true, 'there is no instanceof Motorcycle');
+console.log('Testing instanceof Truck');
+assert.strictEqual(myTruck instanceof Truck, true, 'there is no instanceof Truck');
 success();
 
 console.log('Testing instanceof Car');
-assert.strictEqual(myMotorcycle instanceof Car, true, 'there is no instanceof Car');
+assert.strictEqual(myTruck instanceof Car, true, 'there is no instanceof Car');
 success();
 
-console.log('Testing no more than 2 seats');
-assert.strictEqual(myMotorcycle.seats,2,'Constructor did not set seats.');
+console.log('Testing for load function');
+assert.equal(typeof(myTruck.load), 'function', 'load function not available');
 success();
 
-console.log('Testing for Wheelie function');
-assert.equal(typeof(myMotorcycle.wheelie),'function','there is no pickUp function');
-myMotorcycle.start();
-assert.strictEqual(myMotorcycle.running,true,'not doing a wheelie.');
+console.log('Testing for load success');
+myTruck.capacity(1000);
+myTruck.load(100);
+assert.strictEqual(myTruck.load(),false,'no space to load cargo');
 success();
+
+console.log('Testing for unload success');
+myTruck.unload(100);
+assert.strictEqual(myTruck.unload(),false,'not enough cargo to unload');
+success();
+
+
 
 
 
