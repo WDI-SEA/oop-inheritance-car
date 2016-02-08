@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require("./Truck.js");
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
