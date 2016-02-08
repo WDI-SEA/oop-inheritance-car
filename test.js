@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -120,10 +121,68 @@ assert.strictEqual(typeof(myCar.passengerCount()),'number','passengerCount funct
 assert.strictEqual(myCar.passengerCount(),3,'Passenger count seems inaccurate. Expected 3.');
 success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck');
 
+//ADD TESTS HERE FOR MOTORCYCLE
+// Testing instance motorcycle
+console.log("Testing instance of Motorcycle.");
+var triumph = new Motorcycle("Triumph", "675R", "2014", "White", 1);
+assert.equal(triumph instanceof Motorcycle, true, "triumph should be an instanceof Motorcycle.");
+success("Motorcycle instance passed.");
 
-//ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+// Testing instance Car
+console.log("Testing instance of Car.");
+assert.equal(triumph instanceof Car, true, "triumph should be an instanceof Car.");
+success("Car instance passed.");
 
+// Motorcycle seat test
+console.log("Testing if more than two seats");
+assert.equal(triumph.seats <=2, true, "Cannot have more than two seats on a motorcycle.");
+success("Seat test passed");
 
+// Test for wheelie
+console.log("Testing for wheelie");
+triumph.start();
+assert.equal(triumph.wheelie(), true, "Cannot perform a wheelie if you don't start your bike, dummy!");
+success("Cool wheelie dude!");
+success("All motorcycle tests passed! Final tests: Trucks, Trucks and more Trucks at Northwest Motorsport!")
+
+// ADD TESTS HERE FOR TRUCK
+// Test truck instance Truck
+console.log("Testing truck instance of Truck.");
+var raptor = new Truck("Ford", "Raptor", "2017", "Blue", 3, 1000)
+assert.equal(raptor instanceof Truck, true, "raptor should be an instance of Truck.");
+success("Truck instance passed.");
+
+// Test truck instance Car
+console.log("Testing truck instance of Car.");
+assert.equal(raptor instanceof Car, true, "raptor should be an instance of Car.");
+success("Car instance passed.")
+
+// Test seats
+console.log("Testing for seat quantity.");
+assert.equal(raptor.seats === 3, true, "Raptor can only have 3 seats.");
+success("Seat test passed.");
+
+// Test full load
+console.log("Testing truck for full load");
+// var raptor = new Truck("Ford", "Raptor", "2017", "Blue", 3, 1000);
+assert.equal(raptor.load(1000), true, "raptor should be able to hold its load.");
+success("Raptor was able to load to capacity.")
+
+// Test overload
+console.log("Testing for over capacity load.")
+assert.equal(raptor.load(1100), false, "Raptor shouldn't be loaded over capacity.");
+success("Raptor overloaded pass.");
+
+// Test unloading
+console.log("Testing unload cargo");
+assert.equal(raptor.unload(1000), true, "Raptor removed all cargo.");
+success("All cargo unloaded.");
+
+// Test unload > actual cargo
+console.log("Testing for unload > actual cargo.");
+assert.equal(raptor.unload(1100), false, "Somehow you've removed more cargo than you had. Your truck no longer functions. Idiot.");
+success("Truck unloaded passed");
+success("All tests passed! Drink a beer and drive your vehicles! Actually, you should wait on that beer...");
 
 //simple helper function to output success of tests (DRY)
 function success(extra){
