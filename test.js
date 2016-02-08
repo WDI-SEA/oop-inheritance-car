@@ -145,7 +145,7 @@ var motorcycle = new Motorcycle("Harley", "Davidson", 2006, "Black", 2, 0);
 var motorcycle = new Motorcycle("Harley", "Davidson", 2006, "Black", 5, 0);
 assert.deepEqual((motorcycle instanceof Motorcycle), true, 'Was not an instance of Motorcycle');
 assert.deepEqual((motorcycle instanceof Car), true, 'Was not an instance of Car');
-assert.equal(motorcycle.seats, 2, "There are more than two seats");
+assert.equal(motorcycle.seats <=2, true, "There are more than two seats");
 motorcycle.start();
 assert.strictEqual(motorcycle.wheelie(), true, "Motorcycle was unable to wheelie");
 
