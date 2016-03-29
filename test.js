@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -120,9 +121,50 @@ assert.strictEqual(typeof(myCar.passengerCount()),'number','passengerCount funct
 assert.strictEqual(myCar.passengerCount(),3,'Passenger count seems inaccurate. Expected 3.');
 success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck');
 
+//test start
+console.log('Testing turning off the car');
+assert.equal(typeof(myCar.off),'function','there is no off function');
+myCar.off();
+assert.strictEqual(myCar.running,false,'Failed to turn off the car. running should = false');
+success();
 
-//ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+//ADD TESTS HERE FOR MOTORCYCLE
+//
+//
+//
+//
+//
+//
+console.log('Test starting the motocicleta');
+var myMotorcycle = new Car('Harley', 'aSweetOne', 'Vietnam', 'steel', 2);
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true);
+assert.strictEqual(myMotorcycle instanceof Car, true);
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.wheelie, true);
+success();
 
+
+// var myCar = new Car('Acura', 'Integra', 1999, 'Red', 4);
+// assert.strictEqual(myCar.make,'Acura','Constructor did not set make.');
+// assert.strictEqual(myCar.model,'Integra','Constructor did not set model.');
+// assert.strictEqual(myCar.year,1999,'Constructor did not set year.');
+// assert.strictEqual(myCar.color,'Red','Constructor did not set color.');
+// assert.strictEqual(myCar.seats,4,'Constructor did not set seats.');
+// success();
+
+console.log("Doing a sick wheelie!!");
+
+console.log('Testing passenger count');
+assert.equal(typeof(myMotorcycle.passengerCount),'function','there is no passengerCount function');
+assert.strictEqual(typeof(myMotorcycle.passengerCount()),'number','passengerCount function did not return a number value');
+assert.strictEqual(myMotorcycle.passengerCount(),1,'Passenger count seems inaccurate. Expected 3.');
+success('Your  is ready. Now it\'s time to implement the Truck');
+
+
+
+
+// ADD TESTS HERE FOR
+// TRUCK
 
 
 //simple helper function to output success of tests (DRY)
