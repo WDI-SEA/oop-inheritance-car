@@ -5,6 +5,9 @@ var assert = require('assert');
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
 
+//load the Truck class
+var Truck = require('./Truck.js');
+
 ////// TEST PHASE 1 /////////////////////////////////////////
 
 //test constructor
@@ -126,21 +129,52 @@ console.log('Testing instanceof Motorcycle')
 var myMotorcycle = new Motorcycle ('Harley', 'Bla', 1999, 'Blue', 2, 2);
 assert.equal(myMotorcycle instanceof Motorcycle, true, 'myMotorcycle is not instanceof Motorcycle');
 success();
+
 console.log('instanceof Car')
 var myMotorcycle = new Motorcycle ('Harley', 'Bla', 1999, 'Blue', 2, 2);
 assert.equal(myMotorcycle instanceof Car, true, 'myMotorcycle is not instanceof Car');
 success();
+
 console.log('Cannot have more than 2 seats (constructor)');
 // var myMotorcycle = new Motorcycle ('Harley', 'Bla', 1999, 'Blue', 2, 2);
 assert.equal(myMotorcycle.seatCount(), true, 'Motorcycle can not have more than 2 seats');
 success();
-console.log('Should be able to wheelie() but only if running. Return true  ')
 
+console.log('Should be able to wheelie() but only if running. Return true  ')
 myMotorcycle.start();
 assert.strictEqual(myMotorcycle.running, true, 'Motorcycle needs to be running');
 success();
-assert.equal(myMotorcycle.wheelie(), true, 'Motorcycle needs to be running')
+assert.equal(myMotorcycle.wheelie(), true, 'Motorcycle needs to be running & have wheely function')
 
+
+//TRUCK
+// make
+// model
+// year
+// color
+// It should default to 3 seats.
+console.log('Instanceof Truck ')
+var myTruck = new Truck('Harley', 'HO', 2000, 'Red');
+assert.equal(myTruck instanceof Car, true, 'myTruck is not instanceof Car');
+success();
+console.log('Test if parameters are passing make, model, year, color, seats, capacity');
+var myTruck = new Truck('Harley', 'HO', 2000, 'Red', 3, 300);
+assert.strictEqual(myTruck.make, 'Harley', 'constructor did not pass make');
+assert.strictEqual(myTruck.model, 'HO', 'constructor did not pass model');
+assert.strictEqual(myTruck.year, 2000, 'constructor did not pass year');
+assert.strictEqual(myTruck.color, 'Red', 'constructor did not pass color');
+assert.strictEqual(myTruck.seats, 3, 'constructor did not pass seats');
+assert.strictEqual(myTruck.capacity, 300, 'constructor did not pass capacity');
+success();
+console.log('Number of Seats')
+assert.strictEqual(myTruck.seats, 3, 'truck does not have 3 seats');
+success();
+console.log('testing that cargo is not over the capacity');
+assert.strictEqual(myTruck.load(10), true, 'truck is not able to carry that load');
+success();
+console.log('testing unload function');
+assert.strictEqual(myTruck.unload(5), true,'pounds is greater than the amount of cargo'); 
+success();
 
 
 //simple helper function to output success of tests (DRY)
