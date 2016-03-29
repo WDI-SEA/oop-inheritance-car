@@ -2,7 +2,7 @@
 
 Cars are great and all, but now it's time to extend this app and make it handle more types of vehicles.
 
-Remember TDD? This time, you'll have to make your own tests for each feature. As a reminder, here's the workflow:
+Remember TDD(Test Driven Development)? This time, you'll have to make your own tests for each feature. As a reminder, here's the workflow:
 
 1. Read each feature below and think about what it's asking for.
 2. Create a test (in test.js) to test the feature
