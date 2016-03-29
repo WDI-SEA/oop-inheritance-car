@@ -4,6 +4,7 @@ var assert = require('assert');
 //load the Car class
 var Car = require('./Car.js');
 var Motorcycle = require('./Motorcycle.js');
+var Truck = require('./Truck.js');
 
 ////// TEST PHASE 1 /////////////////////////////////////////
 
@@ -121,8 +122,35 @@ assert.strictEqual(myCar.passengerCount(),3,'Passenger count seems inaccurate. E
 success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck');
 
 
-//ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+//motorcycle constructor
+console.log('Testing Motorcycle Constructor');
+var myMotorcycle = new Motorcycle('Harley-Davidson', 'Cruiser', 2010, 'Red', 2);
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true,'Your motorcycle is not an instance of Motorcycle');
+assert.strictEqual(myMotorcycle instanceof Car, true,'Your motorcycle is not an instance of Car');
+success();
 
+//motorcycle actions
+assert.strictEqual(myMotorcycle.motoroom(), true,'Your motorcycle should have max seating of 2');
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.running, true,'Motorcycle should be running.');
+assert.strictEqual(myMotorcycle.wheelie(), true,'Your motorcycle needs to be running to wheelie.');
+success();
+
+//truck constructor
+console.log('Testing Truck Constructor');
+var myTruck = new Truck('Ford','F150', 2011, 'Black', 4, 200);
+assert.strictEqual(myTruck instanceof Truck, true, 'Your truck is not an instance of a truck.');
+assert.strictEqual(myTruck instanceof Car, true, 'Your truck is not an instance of a car.');
+success();
+
+//truck actions
+assert.strictEqual(myTruck.seats, 3, 'Your car capacity is supposed to be 3');
+assert.strictEqual(myTruck.load(30), true, 'truck can not load');
+success();
+assert.strictEqual(myTruck.unload(30), true,'truck can not unload'); 
+success();
+
+console.log('...success');
 
 
 //simple helper function to output success of tests (DRY)
