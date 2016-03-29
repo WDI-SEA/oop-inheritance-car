@@ -143,8 +143,12 @@ assert.strictEqual(myTruck.seats ==3, true, "Wrong! too many seats.");
 assert.strictEqual(myTruck.capacity == 0, true, "Nice Try!");
 assert.strictEqual(myTruck.cargo == 0, true, "You suck!");
 myTruck.capacity = 1000;
+assert.strictEqual(myTruck.load(1001), false, "your truck is a little over eager")
 assert.strictEqual(myTruck.load(500), true, "try harder");
 assert.strictEqual(myTruck.cargo, 500, "do better, didn't load.");
+assert.strictEqual(myTruck.unload(501), false, "woah there, you thought you could unload more than you have?!");
+assert.strictEqual(myTruck.unload(300), true, "what's wrong, can't unload a little cargo?");
+assert.strictEqual(myTruck.cargo, 200, "keep you're spirits up, you'll figure out why your cargo didn't calculate correctly :)");
 success();
 
 //simple helper function to output success of tests (DRY)

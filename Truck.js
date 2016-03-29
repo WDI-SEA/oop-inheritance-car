@@ -18,5 +18,14 @@ Truck.prototype.load = function(pounds) {
     return false;
 }
 
+Truck.prototype.unload = function(pounds) {
+    if (this.cargo >= pounds) {
+        this.cargo -= pounds;
+        console.log("unloaded", pounds, "lbs of cargo.");
+        return true;
+    }
+    return false;
+}
+
 
 module.exports = Truck;
