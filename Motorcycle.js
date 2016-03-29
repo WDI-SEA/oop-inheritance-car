@@ -4,11 +4,12 @@ var Car = require('./Car.js');
 // * Must be an instanceof `Motorcycle`
 // * Must be an instanceof `Car`
 function Motorcycle(make, model, year, color, seats, passengers) {
-  Car.call(this, make, model, year, color, seats, passengers, running, owner, previous owners)
+  Car.call(this, make, model, year, color, seats, passengers, running, owner, previousOwners)
   // * Cannot have more than 2 seats (constructor)
   if (this.seats > 2) {
-  console.log("Have you ever seen a motorcycle that had more than two seats?")
+    console.log("Have you ever seen a motorcycle that had more than two seats?")
   return (this.seats = 2)
+  }
 }
 Motorcycle.prototype = Object.create(Car.prototype);
 Motorcycle.prototype.constructor = Motorcycle;
@@ -18,9 +19,9 @@ Motorcycle.prototype.start = function() {
 }
 //  Return true and console.log `"Doing a sick wheelie!!"` on success otherwise return false.
 Motorcycle.prototype.wheelie = function() {
-  if this.running = true;
-  console.log('"Doing a sick wheelie!!"')
-  else return false;
+  if (this.running);
+    console.log('"Doing a sick wheelie!!"')
+  return false;
 }
 Motorcycle.prototype.off = function() {
   this.running = false;

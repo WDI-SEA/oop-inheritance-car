@@ -136,9 +136,9 @@ success();
 //
 //
 console.log('Test starting the motocicleta');
-var myMotorcycle= new('Harley', 'aSweetOne', 'Vietnam', 'steel', 2)
-assert.strictEqual(myMotorcycle instanceof motorcycle, true);
-assert.strictEqual(myMotorcycle instanceof car, true);
+var myMotorcycle = new Car('Harley', 'aSweetOne', 'Vietnam', 'steel', 2);
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true);
+assert.strictEqual(myMotorcycle instanceof Car, true);
 myMotorcycle.start();
 assert.strictEqual(myMotorcycle.wheelie, true);
 success();
