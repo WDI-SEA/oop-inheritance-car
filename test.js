@@ -122,6 +122,24 @@ success('Your Car is ready. Now it\'s time to implement the Motorcyle and Truck'
 
 
 //ADD TESTS HERE FOR MOTORCYCLE AND TRUCK
+console.log('Testing Motorcycle Constructor');
+var myMotorcycle = new Motorcycle('Triumph', 'Bonneville', 2015, 'Red', 4);
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true, 'myMotorcycle not instanceof Motorcycle');
+assert.strictEqual(myMotorcycle instanceof Car, true, 'myMotorcycle not instanceof Car');
+assert.strictEqual(myMotorcycle.seats <= 2, true, 'wrong number of seats');
+assert.strictEqual(myMotorcycle.wheelie(), false, 'Motorcycle is running');
+myMotorcycle.start();
+assert.strictEqual(myMotorcycle.wheelie(), true, 'not doing a wheelie');
+
+
+success('myMotorcycle is instanceof Motorcycle');
+
+// ------------
+
+console.log('Testing Truck Constructor');
+var myTruck = new Truck();
+assert.strictEqual(myTruck instanceof Truck, true, 'myTruck not a Truck' );
+assert.strictEqual(myTruck instanceof Car, true, 'myTruck not a Car');
 
 
 
