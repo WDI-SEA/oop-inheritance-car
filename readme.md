@@ -11,11 +11,17 @@ Remember TDD? This time, you'll have to make your own tests for each feature. As
 5. Repeat 3 and 4 until you pass all tests
 6. Move on to the next feature (start back at step 1)
 
-###Optional
+###Getting Started
+* Fork and clone the repository
+* Run `npm install` to install dependencies
+  * `npm run lint:js` - lint JS
+  * `npm test` - run test suite
 
-For more real-world TDD experience, pair up with a partner. Have one person write the tests, then the other person write the code to pass the tests. If you do this, make sure each person makes a pull request once finished.
+###Pair Programming
 
-##Part 1 -- Motorcycles
+For more real-world TDD experience, pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes or so.
+
+###Part 1 -- Motorcycles
 
 Create a new constructor called `Motorcycle` that extends your `Car` constructor.
 
@@ -28,7 +34,7 @@ A `Motorcycle`...
 * Cannot have more than 2 seats (constructor)
 * Should be able to `wheelie()` but only if running. Return true and console.log `"Doing a sick wheelie!!"` on success otherwise return false.
 
-##Part 2 -- Trucks
+###Part 2 -- Trucks
 
 Create a new constructor called `Truck` that extends `Car`. Add the following features
 
