@@ -11,15 +11,18 @@ Remember TDD? This time, you'll have to make your own tests for each feature. As
 5. Repeat 3 and 4 until you pass all tests
 6. Move on to the next feature (start back at step 1)
 
-###Getting Started
+##Getting Started
+
 * Fork and clone the repository
 * Run `npm install` to install dependencies
   * `npm run lint:js` - lint JS
   * `npm test` - run test suite
 
+## Requirements
+
 ###Pair Programming
 
-For more real-world TDD experience, pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes or so.
+For more real-world TDD experience, you'll pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes or so.
 
 ###Part 1 -- Motorcycles
 
@@ -34,32 +37,36 @@ A `Motorcycle`...
 * Cannot have more than 2 seats (constructor)
 * Should be able to `wheelie()` but only if running. Return true and console.log `"Doing a sick wheelie!!"` on success otherwise return false.
 
+There should be tests for each one of the bullet points above.
+
 ###Part 2 -- Trucks
 
-Create a new constructor called `Truck` that extends `Car`. Add the following features
+Create a new constructor called `Truck` that extends `Car`. Add the following features.
 
 This should be done in a new file called `Truck.js` which will need to require `Car.js` to function and export the constructor (similar to what's done in `Motorcycle.js`). Additionally your `test.js` will need to require `Truck.js`
 
-####Basic Truck
+A `Truck`...
 
-A `Truck` must be an instanceof `Truck` and `Car`.
+* Must be an instanceof `Truck`
+* Must be an instanceof `Car`.
+* Should have the following constructor parameters:
+  * make
+  * model
+  * year
+  * color
+* Should default to 3 seats.
 
-It should have the following constructor parameters:
+There should be tests for each one of the bullet points above.
 
-* make
-* model
-* year
-* color
+###Part 3 -- Truck Cargo
 
-It should default to 3 seats.
+Our truck needs to be able to load and unload cargo. Note that the following bullet points are more vague, representing how an actual feature may be presented to you.
 
-####Handling Cargo
-
-Our truck needs to be able to load and unload cargo.
-
-Add an optional constructor parameter for `capacity` this is the amount of weight in pounds the truck can carry. This should just default to 0 if not provided. Also add an attribute for `cargo`, which is the amount of weight the truck is CURRENTLY carrying. This should default to 0, and no constructor parameter is required.
+* Add an optional constructor parameter for `capacity` this is the amount of weight in pounds the truck can carry. This should just default to 0 if not provided. Also add an attribute for `cargo`, which is the amount of weight the truck is CURRENTLY carrying. This should default to 0, and no constructor parameter is required.
 
 Add 2 methods to the `Truck` prototype.
 
 * `load(pounds)` should take a weight in pounds and increase the amount of cargo the truck is carrying IF loading the additional weight won't put it over capacity. Should console.log `"loaded <pounds>lbs of cargo."` and return true if successful and false if the cargo couldn't be loaded (over capacity)
 * `unload(pounds)` should take a weight in pounds and decrease the amount of cargo the truck is carrying and return true. However, if the amount of pounds is greater than the amount of cargo on the truck it should not reduce the cargo and should return false.
+
+There should be tests for each feature.
