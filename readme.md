@@ -57,16 +57,3 @@ A `Truck`...
 * Should default to 3 seats.
 
 There should be tests for each one of the bullet points above.
-
-###Part 3 -- Truck Cargo
-
-Our truck needs to be able to load and unload cargo. Note that the following bullet points are more vague, representing how an actual feature may be presented to you.
-
-* Add an optional constructor parameter for `capacity` this is the amount of weight in pounds the truck can carry. This should just default to 0 if not provided. Also add an attribute for `cargo`, which is the amount of weight the truck is CURRENTLY carrying. This should default to 0, and no constructor parameter is required.
-
-Add 2 methods to the `Truck` prototype.
-
-* `load(pounds)` should take a weight in pounds and increase the amount of cargo the truck is carrying IF loading the additional weight won't put it over capacity. Should console.log `"loaded <pounds>lbs of cargo."` and return true if successful and false if the cargo couldn't be loaded (over capacity)
-* `unload(pounds)` should take a weight in pounds and decrease the amount of cargo the truck is carrying and return true. However, if the amount of pounds is greater than the amount of cargo on the truck it should not reduce the cargo and should return false.
-
-There should be tests for each feature.
