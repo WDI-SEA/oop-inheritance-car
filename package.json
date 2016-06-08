@@ -1,8 +1,8 @@
 {
-  "name": "TEMPLATE-js",
+  "name": "oop-inheritance-car",
   "scripts": {
-    "lint:js": "node_modules/eslint/bin/eslint.js src spec; exit 0",
-    "test": "node spec/index.js"
+    "lint:js": "node_modules/eslint/bin/eslint.js src test; exit 0",
+    "test": "node test/index.js"
   },
   "author": "",
   "license": "MIT",

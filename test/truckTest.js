@@ -2,7 +2,7 @@
 var assert = require('assert');
 var success = require('./helpers/success');
 
-// load the Motorcycle class
-var Motorcycle = require('../src/Motorcycle');
+// load the Truck class
+var Truck = require('../src/Truck');
 
-// Your specs will go below here
+// Your tests will go below here
