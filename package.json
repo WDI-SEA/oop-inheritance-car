@@ -1,7 +1,7 @@
 {
   "name": "oop-inheritance-car",
   "scripts": {
-    "lint:js": "node_modules/eslint/bin/eslint.js src test; exit 0",
+    "lint:js": "node_modules/eslint/bin/eslint.js src test --fix; exit 0",
     "test": "node test/index.js"
   },
   "author": "",
