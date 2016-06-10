@@ -27,6 +27,10 @@ In order to write tests, it's recommended that you look back at the tests for `C
 * `instanceof` - compares an object and a constructor, and sees if the object is an instance of the constructor
 * `success()` - a helper method defined in `test/helpers/success.js` that provided a success message after test units
 
+## Submission
+
+After you submit via pull request, make sure your Travis CI build passes. Note that since we did not provide you the tests, it's *your* responsibility to write correct tests and correct code.
+
 ## Requirements
 
 ###Pair Programming
