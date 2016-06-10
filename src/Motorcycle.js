@@ -16,10 +16,8 @@ Motorcycle.prototype.wheelie = function() {
   if (this.running) {
     console.log('doing a really sick sick wheelie');
     return true;
-  } else {
-    console.log('car much be running');
-    return false;
   }
+  return false;
 };
 
 module.exports = Motorcycle;
