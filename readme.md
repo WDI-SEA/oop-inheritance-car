@@ -35,7 +35,7 @@ After you submit via pull request, make sure your Travis CI build passes. Note t
 
 ###Part 1 -- Trucks
 
-Create a new constructor called `Truck` that extends `Car`.
+Create a new constructor called `Truck` that inherits `Car`.
 
 This should be done in the file called `Truck.js`, which requires `Car.js` for you to use. Additionally your `truckTest.js` will need to require `Truck.js` (already done for you).
 
