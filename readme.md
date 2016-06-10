@@ -33,10 +33,6 @@ After you submit via pull request, make sure your Travis CI build passes. Note t
 
 ## Requirements
 
-###Pair Programming
-
-For more real-world TDD experience, you'll pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes. Once finished, each person should make their own separate pull request and make a note of their partner in the pull request notes.
-
 ###Part 1 -- Trucks
 
 Create a new constructor called `Truck` that extends `Car`.
