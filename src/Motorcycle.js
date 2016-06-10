@@ -14,11 +14,10 @@ Motorcycle.prototype.constructor = Motorcycle;
 Motorcycle.prototype.wheelie = function() {
   if (this.running) {
     console.log('Doing a wheelie that is sick');
-    return true
+    return true;
   }
-  return false
-}
-
+  return false;
+};
 
 
 module.exports = Motorcycle;
