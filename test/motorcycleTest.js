@@ -7,7 +7,7 @@ var Motorcycle = require('../src/Motorcycle');
 var Car = require('../src/Car');
 
 // Your tests will go below here
-var motorcycle = new Motorcycle('Yolo', 'Bolo', 1999, 'bleck', 2, ['Hunk Hail']);
+var motorcycle = new Motorcycle('Yolo', 'Bolo', 1999, 'bleck', ['Hunk Hail']);
 
 console.log('testing if motorcycle is an instance of Motorcycle');
 assert.strictEqual(motorcycle instanceof Motorcycle, true, 'motorcycle should be an instance of Motorcycle');

@@ -1,8 +1,8 @@
 var Car = require('./Car.js');
 
 // Implement your Motorcycle here
-function Motorcycle(make, model, year, color, seats, passengers) {
-  Car.call(this, make, model, year, color, seats, passengers);
+function Motorcycle(make, model, year, color, passengers) {
+  Car.call(this, make, model, year, color, 2, passengers);
 }
 Motorcycle.prototype.start = function() {
   this.start = true;
