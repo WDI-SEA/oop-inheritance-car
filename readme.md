@@ -44,12 +44,12 @@ Your `Truck` constructor should meet the following requirements. There should be
 * Must be an instance of `Truck`
 * Must be an instance of `Car`.
 * Must have the following constructor parameters:
-  * make
-  * model
-  * year
-  * color
-  * seats
-  * passengers
+  * make (string)
+  * model (string)
+  * year (number)
+  * color (string)
+  * cargoInPounds (number)
+  * passengers (optional array)
 * Must default to 3 seats.
 
 There should be tests for each one of the bullet points above.
