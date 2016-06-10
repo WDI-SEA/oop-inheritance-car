@@ -1,8 +1,8 @@
 #Bodyshop Part 2
 
-Cars are great and all, but now it's time to extend this app and make it handle more types of vehicles.
+Cars are great and all, but now it's time to extend this system and make it handle more types of vehicles.
 
-Remember TDD? This time, you'll have to make your own tests for each feature. As a reminder, here's the workflow:
+Remember TDD? This time, you'll have to make your own tests for each feature. In many work environments, **you** will be the one writing tests. As a reminder, here's the workflow:
 
 1. Read each feature below and think about what it's asking for.
 2. Create a test (in test.js) to test the feature
@@ -18,42 +18,60 @@ Remember TDD? This time, you'll have to make your own tests for each feature. As
   * `npm run lint:js` - lint JS
   * `npm test` - run test suite
 
+## Writing Tests
+
+In order to write tests, it's recommended that you look back at the tests for `Car.js` and start following some of the examples in order to get a feel for how to structure tests. Take advantage of the following functions:
+
+* `assert.strictEqual(val1, val2, 'msg')` - strictly compares two primitive values
+* `assert.deepEqual(val1, val2, 'msg')` - strictly compares the properties of two objects or arrays
+* `instanceof` - compares an object and a constructor, and sees if the object is an instance of the constructor
+* `success()` - a helper method defined in `test/helpers/success.js` that provided a success message after test units
+
 ## Requirements
 
 ###Pair Programming
 
-For more real-world TDD experience, you'll pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes or so.
+For more real-world TDD experience, you'll pair up with a partner and practice pair programming, a technique used by companies such as Pivotal Labs. When pair programming, one person will act as the "driver", writing the code, while the other person acts as the "navigator", reviewing the code. Switch off every 10 minutes. Once finished, each person should make their own separate pull request and make a note of their partner in the pull request notes.
 
-###Part 1 -- Motorcycles
+###Part 1 -- Trucks
 
-Create a new constructor called `Motorcycle` that extends your `Car` constructor.
+Create a new constructor called `Truck` that extends `Car`.
 
-This should be done in the file called `Motorcycle.js` which requires `Car.js` to function. Additionally your `test.js` will need to require `Motorcycle.js` (already done for you).
+This should be done in the file called `Truck.js`, which requires `Car.js` for you to use. Additionally your `truckTest.js` will need to require `Truck.js` (already done for you).
 
-A `Motorcycle`...
+Your `Truck` constructor should meet the following requirements. There should be at least one test for each bullet point below.
 
-* Must be an instanceof `Motorcycle`
-* Must be an instanceof `Car`
-* Cannot have more than 2 seats (constructor)
-* Should be able to `wheelie()` but only if running. Return true and console.log `"Doing a sick wheelie!!"` on success otherwise return false.
-
-There should be tests for each one of the bullet points above.
-
-###Part 2 -- Trucks
-
-Create a new constructor called `Truck` that extends `Car`. Add the following features.
-
-This should be done in a new file called `Truck.js` which will need to require `Car.js` to function and export the constructor (similar to what's done in `Motorcycle.js`). Additionally your `test.js` will need to require `Truck.js`
-
-A `Truck`...
-
-* Must be an instanceof `Truck`
-* Must be an instanceof `Car`.
-* Should have the following constructor parameters:
+* Must be an instance of `Truck`
+* Must be an instance of `Car`.
+* Must have the following constructor parameters:
   * make
   * model
   * year
   * color
-* Should default to 3 seats.
+  * seats
+  * passengers
+* Must default to 3 seats.
 
 There should be tests for each one of the bullet points above.
+
+###Part 2 -- Motorcycles
+
+Create a new constructor called `Motorcycle` that inherits your `Car` constructor.
+
+This should be done in the file called `Motorcycle.js`, which requires `Car.js` for you to use. Additionally your `motorcycleTest.js` will need to require `Motorcycle.js` (already done for you).
+
+Your `Motorcycle` constructor should meet the following requirements. There should be at least one test for each bullet point below.
+
+* Must be an instance of a `Motorcycle`
+* Must be an instance of a `Car`
+* Must have the following parameters
+  * make
+  * model
+  * year
+  * color
+  * seats
+  * passengers
+* Must default to 2 seats
+* Must be able to do a wheelie by calling `wheelie()`, but only if running.
+  * If the wheelie is successful, return true and `console.log` the following: `"Doing a sick wheelie!!"`. Otherwise return false.
+  * This function should be attached to `Car.prototype`.
