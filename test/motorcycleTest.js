@@ -42,18 +42,16 @@ console.log('Testing if motorcyle has a property of passengers');
 assert.deepEqual(motorcycle.passengers, ['Rick Lickins'], 'motorcycle should have a passengers property');
 success();
 
-
-motorcycle.running = true;
-var wheelieTest = motorcycle.wheelie();
-
 console.log('Testing if motorcyle can do a wheelie');
-assert.strictEqual(wheelieTest, true, 'motorcycle should be able to do a wheelie');
+motorcycle.start();
+assert.strictEqual(motorcycle.wheelie(), true, 'motorcycle should be able to do a wheelie');
 success();
 
-
-motorcycle.running = false;
-wheelieTest = motorcycle.wheelie();
-
 console.log('Testing if motorcycle is not doing a wheelie');
-assert.strictEqual(wheelieTest, false, 'mortocycle sould return false for a wheelie');
+motorcycle.running = false;
+assert.strictEqual(motorcycle.wheelie(), false, 'mortocycle sould return false for a wheelie');
+success();
+
+console.log('Testing if wheelie is attached to Car');
+assert.strictEqual(typeof Car.prototype.wheelie === 'function', true, 'wheelie should be attached to Car');
 success();

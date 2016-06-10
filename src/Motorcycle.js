@@ -8,7 +8,7 @@ function Motorcycle(make, model, year, color, passengers) {
 Motorcycle.prototype = Object.create(Car.prototype);
 Motorcycle.prototype.constructor = Motorcycle;
 
-Motorcycle.prototype.wheelie = function() {
+Car.prototype.wheelie = function() {
   if (this.running === true) {
     console.log('Doing a sick wheelie!!');
     return true;
