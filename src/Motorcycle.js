@@ -13,7 +13,7 @@ Motorcycle.prototype.start = function() {
   this.running = true;
 };
 
-Motorcycle.prototype.wheelie = function() {
+Car.prototype.wheelie = function() {
   if (this.running === true) {
     console.log('Doing a sick wheelie!');
   } else {

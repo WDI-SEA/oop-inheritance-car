@@ -43,6 +43,10 @@ success();
 console.log('checking wheelie status...');
 assert.equal(typeof(motorcycle.start), 'function', 'there is no start() function');
 motorcycle.start();
-motorcycle.wheelie();
 assert.strictEqual(motorcycle.running, true, 'failed to start the motorcycle');
+success();
+
+console.log('testing if wheelie function is attached to Car.prototype');
+assert.strictEqual(typeof Car.prototype.wheelie === 'function', true, 'should be attached to Car.prototype');
+motorcycle.wheelie();
 success();
