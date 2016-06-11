@@ -48,7 +48,6 @@ Your `Truck` constructor should meet the following requirements. There should be
   * model
   * year
   * color
-  * seats
   * passengers
 * Must default to 3 seats.
 
@@ -69,9 +68,8 @@ Your `Motorcycle` constructor should meet the following requirements. There shou
   * model
   * year
   * color
-  * seats
   * passengers
 * Must default to 2 seats
 * Must be able to do a wheelie by calling `wheelie()`, but only if running.
   * If the wheelie is successful, return true and `console.log` the following: `"Doing a sick wheelie!!"`. Otherwise return false.
-  * This function should be attached to `Car.prototype`.
+  * This function should be attached to `Motorcycle.prototype`.
