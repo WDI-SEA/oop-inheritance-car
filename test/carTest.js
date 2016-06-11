@@ -30,7 +30,6 @@ myCar.paint('Blue');
 assert.strictEqual(myCar.color, 'Blue', 'Failed to paint the car Blue. Car is: "' + myCar.color + '"');
 success('YAY!!! You finished phase 1. Continue to phase 2.');
 
-
 // //// TEST PHASE 2 /////////////////////////////////////////
 
 // test start
@@ -64,7 +63,6 @@ assert.strictEqual(myCar.park(), false, 'Car did not allow parking while NOT run
 myCar.off();
 assert.strictEqual(myCar.park(), true, 'Car allowed parking while running.');
 success('YAY!!! You finished phase 2. Continue to phase 3. Almost done.');
-
 
 // //// TEST PHASE 3 /////////////////////////////////////////
 
