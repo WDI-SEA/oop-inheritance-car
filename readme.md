@@ -73,3 +73,9 @@ Your `Motorcycle` constructor should meet the following requirements. There shou
 * Must be able to do a wheelie by calling `wheelie()`, but only if running.
   * If the wheelie is successful, return true and `console.log` the following: `"Doing a sick wheelie!!"`. Otherwise return false.
   * This function should be attached to `Motorcycle.prototype`.
+
+---
+
+## Licensing
+1. All content is licensed under a CC-BY-NC-SA 4.0 license.
+2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
