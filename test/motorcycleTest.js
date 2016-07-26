@@ -10,23 +10,17 @@ var Car = require('../src/Car');
 
 // test Motorcycle constructor
 console.log('Testing Motorcycle Constructor');
-var myMotorcycle = new Motorcycle('Piaggio', 'Typhoon', 2014, 'White';
-//is it an instance of Motorcycle?
-console.log('Testing for instance of Motorcycle');
-//is it an instance of car?
-console.log('Testing for instance of car');
-//does it have a make?
-console.log('Testing for Motorcycle make');
-//does it have a model?
-console.log('Testing for Motorcycle model');
-//does it have a year?
-console.log('Testing for Motorcycle year');
-//does it have a color?
-console.log('Testing for Motorcycle color');
-//does it have passengers?
-console.log('Testing for Motorcycle passenger array');
-//does it have seats that default to 2?
-console.log('Testing for seats count default (2)');
+var myMotorcycle = new Motorcycle('Piaggio', 'Typhoon', 2014, 'White', undefined, ['Dirty Bill']);
+assert.strictEqual(myMotorcycle instanceof Motorcycle, true, 'Not an instance of Motorcycle!');
+assert.strictEqual(myMotorcycle instanceof Car, true, 'Not an instance of Car');
+assert.strictEqual(myMotorcycle.make, 'Piaggio', 'Constructor didnt set make!');
+assert.strictEqual(myMotorcycle.model, 'Typhoon', 'Constructor didnt set mode!');
+assert.strictEqual(myMotorcycle.year, 2014, 'Constructor didnt set year!');
+assert.strictEqual(myMotorcycle.color, 'White', 'Constructor didnt set color!');
+assert.strictEqual(myMotorcycle.seats, 2, 'Constructor didnt set default seats!'); // Default seat case
+myMotorcycle.seats = 1;
+assert.strictEqual(myMotorcycle.seats, 1, 'Constructor didnt set seats!');
+success();
 
 //does it pop a wheelie only when running?
 console.log('Testing for wheelie poppability');
