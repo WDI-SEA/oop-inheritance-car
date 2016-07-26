@@ -20,12 +20,12 @@ assert.strictEqual(myMotorcycle.color, 'White', 'Constructor didnt set color!');
 assert.strictEqual(myMotorcycle.seats, 2, 'Constructor didnt set default seats!'); // Default seat case
 myMotorcycle.seats = 1;
 assert.strictEqual(myMotorcycle.seats, 1, 'Constructor didnt set seats!');
-success();
 
-//does it pop a wheelie only when running?
-console.log('Testing for wheelie poppability');
-//does it let everyone know it popped a wheelie?
-console.log('Testing for wheelie message');
+console.log('Testing turning on the motorcycle');
+assert.equal(typeOf(myMotorcycle.start)), 'function', 'Something happened with the method inheritance!');
+myMotorcycle.start();
+console.log("Vroom!");
+success();
 
 console.log('W00T~! Your Motorcycle constructor is the best!');
 

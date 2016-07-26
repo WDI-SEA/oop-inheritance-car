@@ -9,4 +9,12 @@ function Motorcycle(make, model, year, color, seats, passengers) {
 Motorcycle.prototype = Object.create(Car.prototype);
 Motorcycle.prototype.constructor = Car;
 
+Motorcycle.prototype.wheelie() {
+  if(this.running) {
+    console.log('Doing a sick wheelie!')
+    return true;
+  }
+  return false;
+}
+
 module.exports = Motorcycle;
