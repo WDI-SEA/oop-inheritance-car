@@ -9,8 +9,13 @@ function Motorcycle(make, model, year, color, passengers) {
   Car.call(this, make, model, year, color, cycleSeats, passengers);
 }
 
-function Motorcycle.prototype.wheelie(){
+Motorcycle.prototype.wheelie = function(){
+  if(this.running){
+    console.log("doing a sweet wheelie");
+    return true;
+  }
+  return false;
+};
 
-}
 
 module.exports = Motorcycle;

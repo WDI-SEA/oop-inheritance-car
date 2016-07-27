@@ -23,4 +23,7 @@ success();
 
 console.log("testing wheelie function");
 assert.equal(typeof(myCycle.wheelie), 'function', 'there is no wheelie function');
+assert.strictEqual(myCycle.wheelie(), false, "Did wheelie even though engine was off");
+myCycle.start();
+assert.strictEqual(myCycle.wheelie(), true, "Did a wheelie but did not return true");
 success();
