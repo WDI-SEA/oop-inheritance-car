@@ -13,6 +13,7 @@ Motorcycle.prototype.constructor = Motorcycle;
 Motorcycle.prototype.wheelie =  function(){
   if(this.running === true){
     console.log('doing a sic wheelie ')
+    return true;
   }else{
     return false;
   }
