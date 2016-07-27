@@ -70,6 +70,14 @@ Car.prototype.passengerCount = function() {
   return this.passengers.length;
 };
 
+Car.prototype.wheelie = function() {
+  if (this.running) {
+    console.log('Doing a sick wheelie!!');
+    return true;
+  }
+  return false;
+};
+
 // export the Car function for use in node
 // this is required for the test.js to load this
 module.exports = Car;
