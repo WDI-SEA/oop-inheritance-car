@@ -5,7 +5,6 @@ function Car(make, model, year, color, seats, passengers) {
   this.color = color;
   this.seats = seats;
   this.passengers = passengers || [];
-
   this.running = false;
   this.owner = 'manufacturer';
   this.previousOwners = [];
@@ -45,9 +44,7 @@ Car.prototype.park = function() {
   }
   return false;
 };
-
 // phase 3
-
 Car.prototype.pickUp = function(name) {
   if (this.running && this.passengers.length + 1 < this.seats) {
     this.passengers.push(name);
@@ -68,6 +65,14 @@ Car.prototype.dropOff = function(name) {
 
 Car.prototype.passengerCount = function() {
   return this.passengers.length;
+};
+
+Car.prototype.wheelie = function() {
+  if (this.running) {
+    console.log('Doing a sick wheelie!!');
+    return true;
+  }
+  return false;
 };
 
 // export the Car function for use in node
