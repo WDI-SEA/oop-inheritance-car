@@ -7,6 +7,9 @@ function Motorcycle(make, model, year, color, passengers) {
 	this.passengers = passengers || this.passengers;
 }
 
+Motorcycle.prototype = Object.create(Car.prototype);
+Motorcycle.constructor = Motorcycle;
+
 Motorcycle.prototype.wheelie = function() {
 	if (this.running) {
 		console.log("Doing a sick wheelie!!");
@@ -15,11 +18,5 @@ Motorcycle.prototype.wheelie = function() {
 
 	return false;
 }
-
-Motorcycle.prototype = Object.create(Car.prototype);
-Motorcycle.constructor = Motorcycle;
-
-var myMotorcycle = new Motorcycle();
-console.log(myMotorcycle.running);
 
 module.exports = Motorcycle;
