@@ -5,7 +5,6 @@ function Car(make, model, year, color, seats, passengers) {
   this.color = color;
   this.seats = seats;
   this.passengers = passengers || [];
-
   this.running = false;
   this.owner = 'manufacturer';
   this.previousOwners = [];
